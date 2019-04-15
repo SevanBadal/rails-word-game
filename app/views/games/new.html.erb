@@ -1,0 +1,31 @@
+<h1 style="text-align: center;">New Game</h1>
+<div class="container d-flex justify-content-around">
+  <div class="row">
+   <% @grid.each do |letter| %>
+   <div class="col-4 col-sm-3 col-md-2 col-lg-1">   
+      <div class="card text-white bg-dark mb-3" style="width: 64px; height: 64px;">
+        <div class="card-body" style="margin: 0 auto;">
+          <p class="card-text" ><%= letter %></p>
+        </div>
+      </div>   
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="container" style="margin: 0 auto;">
+
+<div class="card" style="width: 18rem; margin: 0 auto;">
+  <div class="card-body">
+  <form method="POST" action="/score">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Enter a word</label>
+        <%= hidden_field_tag 'grid', @grid %>
+        <input type="text" class="form-control" name="word" aria-describedby="emailHelp" placeholder="">
+        <small class="form-text text-muted">Enter the longest word found in the letters</small>
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </div>
+</div>
