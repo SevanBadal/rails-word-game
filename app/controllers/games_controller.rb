@@ -1,6 +1,6 @@
 require 'open-uri'
 class GamesController < ApplicationController
-  
+
   def generate_grid(grid_size)
     # TODO: generate random grid of letters
     grid = []
@@ -15,7 +15,7 @@ class GamesController < ApplicationController
     hash = JSON.parse(string)
     hash["found"]
   end
-  
+
   def in_grid?(attempt, grid)
     return false if attempt.length > grid.length
 
@@ -30,11 +30,10 @@ class GamesController < ApplicationController
 
   def score
     @word = params[:word].upcase
-    puts @words.class
     @grid = params[:grid].split(' ')
     @a_word = english_word?(@word)
     @in_grid = in_grid?(@word, @grid)
     @valid_word = @a_word && @in_grid
-    @response = @valid_word ? 'Nice' : 'You suck!'
+    @response = @valid_word ? 'Nice' : "That's not a word!"
   end
 end
