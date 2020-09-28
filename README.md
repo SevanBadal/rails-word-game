@@ -2,7 +2,7 @@
 
 User submits the longest word from a random array of chars
 
-#TODO
+## TODO
 
 Frontend: timer, asynchronous request (use JS fetch instead of ruby in the backend), score, leaderboard
 
